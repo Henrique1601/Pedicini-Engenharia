@@ -1,0 +1,110 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-display: "Archivo", sans-serif;
+  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 10px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-slate-deep: var(--slate-deep);
+  --color-slate-mid: var(--slate-mid);
+  --color-gold: var(--gold);
+  --color-whatsapp: var(--whatsapp);
+  --color-on-dark: var(--on-dark);
+  --color-on-dark-muted: var(--on-dark-muted);
+  --color-line-dark: var(--line-dark);
+}
+
+:root {
+  --radius: 0.375rem;
+  --background: oklch(0.985 0.003 247);
+  --foreground: oklch(0.208 0.042 265.755);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.208 0.042 265.755);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.208 0.042 265.755);
+  --primary: oklch(0.705 0.191 47.6);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.279 0.041 260.031);
+  --secondary-foreground: oklch(1 0 0);
+  --muted: oklch(0.955 0.007 247.896);
+  --muted-foreground: oklch(0.47 0.04 257);
+  --accent: oklch(0.646 0.205 41.1);
+  --accent-foreground: oklch(1 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.91 0.013 255.5);
+  --input: oklch(0.88 0.013 255.5);
+  --ring: oklch(0.705 0.191 47.6);
+  --slate-deep: oklch(0.208 0.042 265.755);
+  --slate-mid: oklch(0.279 0.041 260.031);
+  --gold: oklch(0.8 0.11 80);
+  --whatsapp: oklch(0.72 0.17 150);
+  --on-dark: oklch(0.985 0.003 247);
+  --on-dark-muted: oklch(0.75 0.03 257);
+  --line-dark: oklch(1 0 0 / 10%);
+  --shadow-card: 0 1px 2px oklch(0.2 0.04 265 / 6%), 0 12px 32px -12px oklch(0.2 0.04 265 / 18%);
+  --shadow-glow: 0 10px 40px -10px color-mix(in oklab, var(--primary) 60%, transparent);
+}
+
+@layer base {
+  * { border-color: var(--color-border); }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+  }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+}
+
+@utility blueprint {
+  background-image:
+    linear-gradient(var(--line-dark) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line-dark) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+@utility blueprint-light {
+  background-image:
+    linear-gradient(oklch(0.208 0.042 265 / 6%) 1px, transparent 1px),
+    linear-gradient(90deg, oklch(0.208 0.042 265 / 6%) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+@utility shadow-card { box-shadow: var(--shadow-card); }
+@utility shadow-glow { box-shadow: var(--shadow-glow); }
+@utility hero-overlay {
+  background: linear-gradient(100deg, var(--slate-deep) 30%, color-mix(in oklab, var(--slate-deep) 70%, transparent) 60%, color-mix(in oklab, var(--slate-deep) 20%, transparent));
+}
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
